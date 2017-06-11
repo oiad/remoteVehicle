@@ -1,6 +1,6 @@
 # [EPOCH 1.0.6.1] Remote Vehicle Locking/Engine Status and kick out non group members.
 
-* Discussion URL: 
+* Discussion URL: https://epochmod.com/forum/topic/44104-release-remote-vehicle-lockingengineeject-script/
 	
 * Tested as working on a blank Epoch 1.0.6.1
 * Uses clickActions as a dependancy
