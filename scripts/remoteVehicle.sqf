@@ -2,10 +2,13 @@
 	Remote vehicle script by salival (https://github.com/oiad)
 */
 
-private ["_characterID","_display","_fuel","_group","_keyFound","_keyID","_keyName","_option","_time","_vehicle","_vehicleType"];
+private ["_characterID","_checkDistance","_display","_distance","_fuel","_group","_keyFound","_keyID","_keyName","_option","_time","_vehicle","_vehicleType"];
 
 _keyName = _this select 0;
 _option = _this select 1;
+
+_checkDistance = true; // Check to see if the player is too far away from the remote
+_distance = 300; // Maximum distance the player can be away from the vehicle to be able to use the remote.
 
 disableSerialization;
 
@@ -35,6 +38,8 @@ _keyFound = false;
 
 if (!_keyFound) exitWith {systemChat "Unable to find a valid vehicle for this key.";};
 if (!alive _vehicle) exitWith {systemChat "The vehicle for this key has been destroyed.";};
+
+if (_checkDistance && {(player distance _vehicle) >= _distance}) exitWith {format ["The remote is out of range for your %1.",_vehicleType] call dayz_rollingMessages;};
 
 if (_option == 1) then {
 	_group = units group player;
