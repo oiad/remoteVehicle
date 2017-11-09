@@ -59,7 +59,8 @@
 	#include "scripts\remoteVehicle\remoteVehicle.hpp"
 	```
 # Battleye filter install:
-In your config\<yourServerName>\Battleye\scripts.txt around line 12: <code>5 createDialog</code> add this to the end of it:
+1. In your config\<yourServerName>\Battleye\scripts.txt around line 12: <code>5 createDialog</code> add this to the end of it:
+
 	```sqf
 	!"createDialog \"remoteVehicle\";"
 	```
