@@ -212,7 +212,6 @@ class remoteVehicle {
 	idd = 8800;
 	name="remoteVehicle";
 	onLoad = "uiNamespace setVariable ['rv_dialog', _this select 0]";
-	onUnload = "dayz_actionInProgress = false;";
 	movingEnabled = 0;
 	enableSimulation = 1;
 

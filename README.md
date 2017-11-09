@@ -58,3 +58,15 @@
 	```sqf
 	#include "scripts\remoteVehicle\remoteVehicle.hpp"
 	```
+# Battleye filter install:
+In your config\<yourServerName>\Battleye\scripts.txt around line 12: <code>5 createDialog</code> add this to the end of it:
+
+	```sqf
+	!"createDialog \"remoteVehicle\";"
+	```
+	
+	So it will then look like this for example:
+
+	```sqf
+	5 createDialog <CUT> !"createDialog \"remoteVehicle\";"
+	```
