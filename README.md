@@ -53,3 +53,8 @@
 	```sqf
 	player_selectSlot = compile preprocessFileLineNumbers "overwrites\click_actions\ui_selectSlot.sqf";
 	```
+
+5. In <code>mission\description.ext</code> Add the following line at the end of the file:
+	```sqf
+	#include "scripts\remoteVehicle\remoteVehicle.hpp"
+	```

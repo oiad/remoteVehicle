@@ -24,3 +24,4 @@ DZE_CLICK_ACTIONS = DZE_CLICK_ACTIONS + [["ItemKey","Eject players","spawn remot
 DZE_CLICK_ACTIONS = DZE_CLICK_ACTIONS + [["ItemKey","Toggle engine on/off","spawn remoteVehicle;","true",2]];
 DZE_CLICK_ACTIONS = DZE_CLICK_ACTIONS + [["ItemKey","Unlock vehicle","spawn remoteVehicle;","true",3]];
 DZE_CLICK_ACTIONS = DZE_CLICK_ACTIONS + [["ItemKey","Lock vehicle","spawn remoteVehicle;","true",4]];
+DZE_CLICK_ACTIONS = DZE_CLICK_ACTIONS + [["ItemKey","Toggle Lights on/off","spawn remoteVehicle;","true",5]];
