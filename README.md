@@ -58,6 +58,11 @@
 	```sqf
 	#include "scripts\remoteVehicle\remoteVehicle.hpp"
 	```
+
+6. If you have no <code>stringtable.xml</code> in your mission pbo root directory, copy the supplied <code>stringtable.xml</code> file to your mission pbo.
+
+7. If you run ESSv3 or any other scripts that use the <code>stringtable.xml</code> file (ZSC, Virtual Garage, Remote Vehicle etc) diff merge the supplied stringtable.xml with your version.
+
 # Battleye filter install:
 1. In your config\<yourServerName>\Battleye\scripts.txt around line 12: <code>5 createDialog</code> add this to the end of it:
 

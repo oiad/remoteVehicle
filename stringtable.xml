@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Project name="DayZMission">
+	<Package name="remoteVehicle">
+		<Key ID="STR_RV_VEHICLE_INFO">
+			<English>Vehicle Info</English>
+		</Key>
+		<Key ID="STR_RV_VEHICLE_LIST">
+			<English>Vehicle List</English>
+		</Key>
+		<Key ID="STR_RV_SELECT_VEHICLE">
+			<English>Select Vehicle</English>
+		</Key>
+		<Key ID="STR_RV_NO_KEYS">
+			<English>No valid keys in your toolbelt.</English>
+		</Key>
+		<Key ID="STR_RV_TITLE">
+			<English>Remote Vehicle - Vehicles for %1</English>
+		</Key>
+		<Key ID="STR_RV_NO_VEHICLES">
+			<English>Unable to find a valid vehicle for this key.</English>
+		</Key>
+		<Key ID="STR_RV_DESTROYED">
+			<English>The vehicle for this key has been destroyed.</English>
+		</Key>
+		<Key ID="STR_RV_RANGE_FAIL">
+			<English>The remote is out of range for your %1.</English>
+		</Key>
+		<Key ID="STR_RV_EJECT">
+			<English>Ejecting all players not in your group from: %1</English>
+		</Key>
+		<Key ID="STR_RV_EJECT_PLAYER">
+			<English>Ejecting %1, they are NOT in your group.</English>
+		</Key>
+		<Key ID="STR_RV_ENGINE">
+			<English>Toggling engine %1 in: %2</English>
+		</Key>
+		<Key ID="STR_RV_LIGHTS">
+			<English>Toggled lights %1: %2</English>
+		</Key>
+	</Package>
+</Project>
