@@ -5,7 +5,6 @@
 private ["_characterID","_checkDistance","_display","_distance","_fuel","_group","_vehicleFound","_keyID","_keyName","_option","_time","_vehicle","_vehicleType","_index","_control","_keyDisplay","_exit"];
 
 if (isNil "rv_init") then {
-	if (getText (configFile >> "CfgMods" >> "DayZ" >> "version") == "DayZ Epoch 1.0.6.1") then {epoch_tempKeys = compile preprocessFileLineNumbers "scripts\remoteVehicle\epoch_tempKeys.sqf";}; // This can be removed when 1.0.6.2 comes out.
 	rv_vehicleInfo = compile preprocessFileLineNumbers "scripts\remoteVehicle\vehicleInfo.sqf";
 	rv_init = true;
 };
@@ -107,7 +106,7 @@ if (_option == 2) then {
 			_fuel = fuel rv_selected;
 			rv_selected setFuel 0;
 			player action ["engineOff",rv_selected];
-			uiSleep 4;
+			uiSleep 4.5;
 			rv_selected setFuel _fuel;
 		} else {
 			[rv_selected,false] call dayz_engineSwitch;
@@ -126,7 +125,6 @@ if (_option == 3) then {
 		PVDZE_veh_Lock call local_lockUnlock;
 	} else {
 		publicVariable "PVDZE_veh_Lock";
-		//Wait for lock status to update over network (can take up to a few seconds)
 		waitUntil {uiSleep 0.1;(!locked rv_selected or (diag_tickTime - _time > 4))};
 	};
 };
@@ -140,7 +138,6 @@ if (_option == 4) then {
 		PVDZE_veh_Lock call local_lockUnlock;
 	} else {
 		publicVariable "PVDZE_veh_Lock";
-		//Wait for lock status to update over network (can take up to a few seconds)
 		waitUntil {uiSleep 0.1;(locked rv_selected or (diag_tickTime - _time > 4))};
 	};
 };
