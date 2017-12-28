@@ -19,14 +19,6 @@
 
 **[>> Download <<](https://github.com/oiad/remoteVehicle/archive/master.zip)**
 
-# dayz_server folder install:
-
-1. In dayz_server\eventHandlers\server_sendToClient.sqf find: <code>//_vehicle engineOn _state;</code> and remove the comment tags (//) example:
-
-	```sqf
-	_vehicle engineOn _state;
-	```
-
 # Mission folder install:
 
 1. If you don't have a custom compiles file do the following:
