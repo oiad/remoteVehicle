@@ -3,39 +3,51 @@
 	<Package name="remoteVehicle">
 		<Key ID="STR_RV_VEHICLE_INFO">
 			<English>Vehicle Info</English>
+			<German>Fahrzeug-Info</German>		
 		</Key>
 		<Key ID="STR_RV_VEHICLE_LIST">
 			<English>Vehicle List</English>
+			<German>Fahrzeugliste</German>		
 		</Key>
 		<Key ID="STR_RV_SELECT_VEHICLE">
 			<English>Select Vehicle</English>
+			<German>Wähle Fahrzeug</German>		
 		</Key>
 		<Key ID="STR_RV_NO_KEYS">
 			<English>No valid keys in your toolbelt.</English>
+			<German>Es wurden keine geeigneten Schlüssel an deinem Gürtel gefunden.</German>					
 		</Key>
 		<Key ID="STR_RV_TITLE">
 			<English>Remote Vehicle - Vehicles for %1</English>
+			<German>Fahrzeugfernsteuerung - Fahrzeuge für %1</German>					
 		</Key>
 		<Key ID="STR_RV_NO_VEHICLES">
 			<English>Unable to find a valid vehicle for this key.</English>
+			<German>Es konnte kein Fahrzeug für diesen Schlüssel gefunden werden.</German>			
 		</Key>
 		<Key ID="STR_RV_DESTROYED">
 			<English>The vehicle for this key has been destroyed.</English>
+			<German>Das Fahrzeug für diesen Schlüssel wurde zerstört.</German>			
 		</Key>
 		<Key ID="STR_RV_RANGE_FAIL">
 			<English>The remote is out of range for your %1.</English>
+			<German>Die Fernsteuerung für dein(en) %1 ist außer Reichweite.</German>					
 		</Key>
 		<Key ID="STR_RV_EJECT">
 			<English>Ejecting all players not in your group from: %1</English>
+			<German>Spieler, die nicht in deiner Gruppe sind zum Aussteigen zwingen aus: %1</German>				
 		</Key>
 		<Key ID="STR_RV_EJECT_PLAYER">
 			<English>Ejecting %1, they are NOT in your group.</English>
+			<German>%1 ist ausgestiegen, sie sind nicht in deiner Gruppe.</German>		
 		</Key>
 		<Key ID="STR_RV_ENGINE">
 			<English>Toggling engine %1 in: %2</English>
+			<German>Motor %1 in: %2</German>	
 		</Key>
 		<Key ID="STR_RV_LIGHTS">
 			<English>Toggled lights %1: %2</English>
+			<German>Licht %1 in: %2</German>			
 		</Key>
 	</Package>
 </Project>
