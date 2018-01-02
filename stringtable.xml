@@ -5,61 +5,73 @@
 			<English>Vehicle Info</English>
 			<German>Fahrzeug-Info</German>
 			<French>Informations du véhicule</French>
+			<Spanish>Vehiculo Info</Spanish>
 		</Key>
 		<Key ID="STR_RV_VEHICLE_LIST">
 			<English>Vehicle List</English>
 			<German>Fahrzeugliste</German>
 			<French>List des véhicules</French>
+			<Spanish>Lista de Vehiculos</Spanish>
 		</Key>
 		<Key ID="STR_RV_SELECT_VEHICLE">
 			<English>Select Vehicle</English>
-			<German>Wähle Fahrzeug</German>	
+			<German>Wähle Fahrzeug</German>
 			<French>Sélectionez le véhicule</French>
+			<Spanish>Seleccionar Vehiculo</Spanish>
 		</Key>
 		<Key ID="STR_RV_NO_KEYS">
 			<English>No valid keys in your toolbelt.</English>
 			<German>Es wurden keine geeigneten Schlüssel an deinem Gürtel gefunden.</German>
 			<French>Vous n'avez pas de clés valid sur votre ceinture.</French>
+			<Spanish>No tienes las llaves en tu cinto de herramientas.</Spanish>
 		</Key>
 		<Key ID="STR_RV_TITLE">
 			<English>Remote Vehicle - Vehicles for %1</English>
 			<German>Fahrzeugfernsteuerung - Fahrzeuge für %1</German>
 			<French>Démarreur Véhicule - Véhicules pour %1</French>
+			<Spanish>Vehiculo Remoto - Vehiculos para %1</Spanish>
 		</Key>
 		<Key ID="STR_RV_NO_VEHICLES">
 			<English>Unable to find a valid vehicle for this key.</English>
 			<German>Es konnte kein Fahrzeug für diesen Schlüssel gefunden werden.</German>
 			<French>Pas capable de trouver le véhicule pour cette clé.</French>
+			<Spanish>No se encontro un vehiculo valido para esta llave.</Spanish>
 		</Key>
 		<Key ID="STR_RV_DESTROYED">
 			<English>The vehicle for this key has been destroyed.</English>
 			<German>Das Fahrzeug für diesen Schlüssel wurde zerstört.</German>
 			<French>Le véhicule qui appartient à cette clé est détruit.</French>
+			<Spanish>El vehiculo que pertenecia a esta llave fue destruido.</Spanish>
 		</Key>
 		<Key ID="STR_RV_RANGE_FAIL">
 			<English>The remote is out of range for your %1.</English>
 			<German>Die Fernsteuerung für dein(en) %1 ist außer Reichweite.</German>
 			<French>Le démarreur est a hors distance de votre %1.</French>
+			<Spanish>El Remoto esta fuera de rango para tu %1.</Spanish>
 		</Key>
 		<Key ID="STR_RV_EJECT">
 			<English>Ejecting all players not in your group from: %1</English>
 			<German>Spieler, die nicht in deiner Gruppe sind zum Aussteigen zwingen aus: %1</German>
 			<French>Éjecter tous les jouers qui ne sont pas dans votre groupe de: %1.</French>
+			<Spanish>Expulsando a todos los tripulantes fuera de tu grupo de: %1</Spanish>
 		</Key>
 		<Key ID="STR_RV_EJECT_PLAYER">
 			<English>Ejecting %1, they are NOT in your group.</English>
 			<German>%1 ist ausgestiegen, sie sind nicht in deiner Gruppe.</German>
 			<French>Éjection de %1, ils ne sont PAS dans votre groupe.</French>
+			<Spanish>Expulsando %1, ellos no pertenecen a tu grupo.</Spanish>
 		</Key>
 		<Key ID="STR_RV_ENGINE">
 			<English>Toggling engine %1 in: %2</English>
 			<German>Motor %1 in: %2</German>
 			<French>Activer ou désactiver le moteur %1 dans: %2.</French>
+			<Spanish>Apagando el motor %1 en: %2</Spanish>
 		</Key>
 		<Key ID="STR_RV_LIGHTS">
 			<English>Toggled lights %1: %2</English>
 			<German>Licht %1 in: %2</German>
 			<French>Activer ou désactiver les lumières %1: %2.</French>
+			<Spanish>Apagando Luces %1: %2</Spanish>
 		</Key>
 	</Package>
 </Project>
