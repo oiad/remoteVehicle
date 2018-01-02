@@ -19,7 +19,7 @@
 		<Key ID="STR_RV_NO_KEYS">
 			<English>No valid keys in your toolbelt.</English>
 			<German>Es wurden keine geeigneten Schlüssel an deinem Gürtel gefunden.</German>
-			<French>Vous n'avez pas de clefs valid sur votre ceinture.</French>
+			<French>Vous n'avez pas de clés valid sur votre ceinture.</French>
 		</Key>
 		<Key ID="STR_RV_TITLE">
 			<English>Remote Vehicle - Vehicles for %1</English>
@@ -29,12 +29,12 @@
 		<Key ID="STR_RV_NO_VEHICLES">
 			<English>Unable to find a valid vehicle for this key.</English>
 			<German>Es konnte kein Fahrzeug für diesen Schlüssel gefunden werden.</German>
-			<French>Démarreur Véhicule - Véhicules pour %1</French>
+			<French>Pas capable de trouver le véhicule pour cette clé.</French>
 		</Key>
 		<Key ID="STR_RV_DESTROYED">
 			<English>The vehicle for this key has been destroyed.</English>
 			<German>Das Fahrzeug für diesen Schlüssel wurde zerstört.</German>
-			<French>Le véhicule qui appartient à cette clef n'existe plus.</French>
+			<French>Le véhicule qui appartient à cette clé est détruit.</French>
 		</Key>
 		<Key ID="STR_RV_RANGE_FAIL">
 			<English>The remote is out of range for your %1.</English>
