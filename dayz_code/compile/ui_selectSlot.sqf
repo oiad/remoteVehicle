@@ -1,7 +1,5 @@
 //private ["_control","_button","_parent","_group","_pos","_item","_conf","_name","_cfgActions","_numActions","_height","_menu","_config","_type","_script","_outputOriented","_compile","_array","_outputClass","_outputType"];
-
 disableSerialization;
-
 _control = _this select 0;
 _button = _this select 1;
 _parent = findDisplay 106;
@@ -9,16 +7,22 @@ _parent = findDisplay 106;
 if (carryClick) then {carryClick = false;};
 
 if (_button == 1) then {
+	if (animationState player in ["ainjppnemstpsnonwnondnon_rolltofront","amovppnemstpsnonwnondnon_healed"]) exitWith {
+		//Prevent bypassing unconscious wake up animation with bandage or other right click actions
+		localize "str_player_actionslimit" call dayz_rollingMessages;
+	};
+
 	private ["_conf","_name","_compile","_height","_item","_isKey"];
 	_group = _parent displayCtrl 6902;
 
 	_pos = ctrlPosition _group;
 
-	_item = gearSlotData _control;	
+	_item = gearSlotData _control;
 	if ( //No right click action
 		(!DZE_SelfTransfuse && _item in ["ItemBloodbag","wholeBloodBagANEG","wholeBloodBagAPOS","wholeBloodBagBNEG","wholeBloodBagBPOS","wholeBloodBagABNEG","wholeBloodBagABPOS","wholeBloodBagONEG","wholeBloodBagOPOS"]) or
 		(!dayz_groupSystem && _item == "ItemRadio")
 	) exitWith {};
+	
 	if (mouseOverCarry) then {
 		_item = DayZ_onBack;
 		carryClick = true;
@@ -89,7 +93,7 @@ if (_button == 1) then {
 			};
 			_numActions = _numActions + 1;
 		};
-    } forEach DZE_CLICK_ACTIONS;
+	} forEach DZE_CLICK_ACTIONS;
 
 	_pos set [3,_height];
 
