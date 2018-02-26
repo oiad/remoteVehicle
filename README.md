@@ -31,7 +31,7 @@
 
 2. Copy the supplied <code>ui_selectSlot.sqf</code> to <code>dayz_code\compile</code> By default Mudzereli has his version in <code>overwrites\click_actions\ui_selectSlot.sqf</code>, delete his version to keep everything consistant.
 
-3. In your clickActions config.sqf add this code block after the last line:
+3. In your clickActions <code>scripts\clickActions\config.sqf</code> add this code block after the last line:
 
 	```sqf
 	DZE_CLICK_ACTIONS = DZE_CLICK_ACTIONS + [["ItemKey","Eject Passengers not in group","spawn remoteVehicle;","true",1]];
