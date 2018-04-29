@@ -29,23 +29,25 @@
 	```
 	2. Copy the <code>dayz_code\init</code> folder structure to your mission folder root.
 
-2. Copy the supplied <code>ui_selectSlot.sqf</code> to <code>dayz_code\compile</code> By default Mudzereli has his version in <code>overwrites\click_actions\ui_selectSlot.sqf</code>, delete his version to keep everything consistant.
+2. Copy the supplied <code>ui_selectSlot.sqf</code> to <code>dayz_code\compile</code>.
 
-3. In your clickActions <code>scripts\clickActions\config.sqf</code> add this code block after the last line:
-
+3. In your clickActions <code>scripts\clickActions\config.sqf</code> find this line:
 	```sqf
-	DZE_CLICK_ACTIONS = DZE_CLICK_ACTIONS + [["ItemKey","Eject Passengers not in group","spawn remoteVehicle;","true",1]];
-	DZE_CLICK_ACTIONS = DZE_CLICK_ACTIONS + [["ItemKey","Toggle engine on/off","spawn remoteVehicle;","true",2]];
-	DZE_CLICK_ACTIONS = DZE_CLICK_ACTIONS + [["ItemKey","Unlock vehicle","spawn remoteVehicle;","true",3]];
-	DZE_CLICK_ACTIONS = DZE_CLICK_ACTIONS + [["ItemKey","Lock vehicle","spawn remoteVehicle;","true",4]];
+	["ItemMap",localize "STR_CL_LV_LOCATE_VEHICLES","execVM 'scripts\locateVehicle.sqf';","true"]
 	```
 	
-4. In <code>overwrites\click_actions\init.sqf</code> Remove the following line:
+	Add the following code block after it:
 
 	```sqf
-	player_selectSlot = compile preprocessFileLineNumbers "overwrites\click_actions\ui_selectSlot.sqf";
+	["ItemKey",localize "STR_CL_RV_CA_EJECT","spawn remoteVehicle;","true",1],
+	["ItemKey",localize "STR_CL_RV_CA_ENGINE","spawn remoteVehicle;","true",2],
+	["ItemKey",localize "STR_CL_RV_CA_UNLOCK","spawn remoteVehicle;","true",3],
+	["ItemKey",localize "STR_CL_RV_CA_LOCK","spawn remoteVehicle;","true",4],
+	["ItemKey",localize "STR_CL_RV_CA_LIGHTS","spawn remoteVehicle;","true",5]
 	```
-
+	
+	Make sure to put a , after the locateVehicle.sqf line (the line you were finding in section 3)
+	
 5. In <code>mission\description.ext</code> Add the following line at the end of the file:
 	```sqf
 	#include "scripts\remoteVehicle\remoteVehicle.hpp"
