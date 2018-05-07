@@ -48,6 +48,16 @@
 	
 	Make sure to put a , after the locateVehicle.sqf line (the line you were finding in section 3)
 	
+4. In your <code>mission\dayz_code\init\compiles.sqf</code> find this line:
+	```sqf
+	fnc_usec_selfActions = compile preprocessFileLineNumbers "dayz_code\compile\fn_selfActions.sqf";
+	```
+	Add the following lines after it:
+	```sqf
+	player_selectSlot = compile preprocessFileLineNumbers "dayz_code\compile\ui_selectSlot.sqf";
+	remoteVehicle = compile preprocessFileLineNumbers "scripts\remoteVehicle\remoteVehicle.sqf";
+	```
+
 5. In <code>mission\description.ext</code> Add the following line at the end of the file:
 	```sqf
 	#include "scripts\remoteVehicle\remoteVehicle.hpp"
