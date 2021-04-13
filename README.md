@@ -1,8 +1,8 @@
-# [EPOCH 1.0.6.1] Remote Vehicle Locking/Engine Status and kick out non group members.
+# [EPOCH 1.0.7] Remote Vehicle Locking/Engine Status and kick out non group members.
 
 * Discussion URL: https://epochmod.com/forum/topic/44104-release-remote-vehicle-lockingengineeject-script/
 	
-* Tested as working on a blank Epoch 1.0.6.1
+* Tested as working on a blank Epoch 1.0.7
 * Uses clickActions as a dependancy
 
 # REPORTING ERRORS/PROBLEMS
@@ -16,27 +16,33 @@
 # Install:
 
 * This uses Click Actions by Mudzereli as a dependancy: https://github.com/mudzereli/DayZEpochDeployableBike/tree/master/overwrites/click_actions
+* This install basically assumes you have a custom compiles.sqf.
 
 **[>> Download <<](https://github.com/oiad/remoteVehicle/archive/master.zip)**
 
 # Mission folder install:
 
-1. If you don't have a custom compiles file do the following:
-	1. In mission\init.sqf find: <code>call compile preprocessFileLineNumbers "\z\addons\dayz_code\init\compiles.sqf";</code> and add directly below:
-
+1. Move the <code>scripts</code> folder and files <code>scripts\remoteVehicle</code> to your mission folder root preserving directory structure.
+	
 	```sqf
-	call compile preprocessFileLineNumbers "dayz_code\init\compiles.sqf";
-	```
-	2. Copy the <code>dayz_code\init</code> folder structure to your mission folder root.
-
-2. Copy the supplied <code>ui_selectSlot.sqf</code> to <code>dayz_code\compile</code>.
-
-3. In your clickActions <code>scripts\clickActions\config.sqf</code> find this line:
-	```sqf
-	["ItemMap",localize "STR_CL_LV_LOCATE_VEHICLES","execVM 'scripts\locateVehicle.sqf';","true"]
+	scripts\remoteVehicle	
 	```
 	
-	Add the following code block after it:
+2. Open your compiles.sqf and search for:
+
+	```sqf
+	if (!isDedicated) then {
+	```
+	
+	And add this inside the square brackets so it looks like this:
+	
+	```sqf
+	if (!isDedicated) then {
+		remoteVehicle = compile preprocessFileLineNumbers "scripts\remoteVehicle\remoteVehicle.sqf";
+	};	
+	```
+
+3. Edit your clickActions\config.sqf and add this line to your DZE_CLICK_ACTIONS array:
 
 	```sqf
 	["ItemKey",localize "STR_CL_RV_CA_EJECT","spawn remoteVehicle;","true",1],
@@ -45,36 +51,81 @@
 	["ItemKey",localize "STR_CL_RV_CA_LOCK","spawn remoteVehicle;","true",4],
 	["ItemKey",localize "STR_CL_RV_CA_LIGHTS","spawn remoteVehicle;","true",5]
 	```
-	
-	Make sure to put a , after the locateVehicle.sqf line (the line you were finding in section 3)
-	
-4. In your <code>mission\dayz_code\init\compiles.sqf</code> find this line:
+
+	For example:
+
 	```sqf
-	fnc_usec_selfActions = compile preprocessFileLineNumbers "dayz_code\compile\fn_selfActions.sqf";
-	```
-	Add the following lines after it:
-	```sqf
-	player_selectSlot = compile preprocessFileLineNumbers "dayz_code\compile\ui_selectSlot.sqf";
-	remoteVehicle = compile preprocessFileLineNumbers "scripts\remoteVehicle\remoteVehicle.sqf";
+	DZE_CLICK_ACTIONS = [
+		["ItemGPS","Scan Nearby","if(isNil 'DZE_CLICK_ACTIONS_GPS_RANGE') then {DZE_CLICK_ACTIONS_GPS_RANGE = 1500;};DZE_CLICK_ACTIONS_ZOMBIE_COUNT = count ((position player) nearEntities ['zZombie_Base',DZE_CLICK_ACTIONS_GPS_RANGE]); DZE_CLICK_ACTIONS_MAN_COUNT = count ((position player) nearEntities ['CAManBase',DZE_CLICK_ACTIONS_GPS_RANGE]); format['Within %1 Meters: %2 AI/players, %3 zombies, %4 vehicles',DZE_CLICK_ACTIONS_GPS_RANGE,DZE_CLICK_ACTIONS_MAN_COUNT - DZE_CLICK_ACTIONS_ZOMBIE_COUNT,count ((position player) nearEntities ['zZombie_Base',DZE_CLICK_ACTIONS_GPS_RANGE]),count ((position player) nearEntities ['allVehicles',DZE_CLICK_ACTIONS_GPS_RANGE]) - DZE_CLICK_ACTIONS_MAN_COUNT] call dayz_rollingMessages;","true"],
+		["ItemGPS","Range Up"   ,"if(isNil 'DZE_CLICK_ACTIONS_GPS_RANGE') then {DZE_CLICK_ACTIONS_GPS_RANGE = 1500;};DZE_CLICK_ACTIONS_GPS_RANGE = (DZE_CLICK_ACTIONS_GPS_RANGE + 100) min 2500; format['GPS RANGE: %1',DZE_CLICK_ACTIONS_GPS_RANGE] call dayz_rollingMessages;","true"],
+		["ItemGPS","Range Down" ,"if(isNil 'DZE_CLICK_ACTIONS_GPS_RANGE') then {DZE_CLICK_ACTIONS_GPS_RANGE = 1500;};DZE_CLICK_ACTIONS_GPS_RANGE = (DZE_CLICK_ACTIONS_GPS_RANGE - 100) max 1000; format['GPS RANGE: %1',DZE_CLICK_ACTIONS_GPS_RANGE] call dayz_rollingMessages;","true"],
+		["ItemKey",localize "STR_CL_RV_CA_EJECT","spawn remoteVehicle;","true",1],
+		["ItemKey",localize "STR_CL_RV_CA_ENGINE","spawn remoteVehicle;","true",2],
+		["ItemKey",localize "STR_CL_RV_CA_UNLOCK","spawn remoteVehicle;","true",3],
+		["ItemKey",localize "STR_CL_RV_CA_LOCK","spawn remoteVehicle;","true",4],
+		["ItemKey",localize "STR_CL_RV_CA_LIGHTS","spawn remoteVehicle;","true",5]
+	];
 	```
 
-5. In <code>mission\description.ext</code> Add the following line at the end of the file:
+	If it's the last item in the array, then you must make sure you don't have a <code>,</code> at the end.
+
+4. In <code>mission\description.ext</code> Add the following line at the end of the file:
+
 	```sqf
 	#include "scripts\remoteVehicle\remoteVehicle.hpp"
 	```
 
-6. Download the <code>stringTable.xml</code> file linked below from the [Community Localization GitHub](https://github.com/oiad/communityLocalizations) and copy it to your mission folder, it is a community based localization file and contains translations for major community mods including this one.
+# BattlEye filters:
 
-**[>> Download stringTable.xml <<](https://github.com/oiad/communityLocalizations/blob/master/stringTable.xml)**
-
-# Battleye filter install:
-1. In your config\<yourServerName>\Battleye\scripts.txt around line 12: <code>5 createDialog</code> add this to the end of it:
+1. In your config\<yourServerName>\Battleye\scripts.txt around line 22: <code>1 compile</code> add this to the end of it:
 
 	```sqf
-	!"createDialog \"remoteVehicle\";"
+	!="ay\",\"_exit\"];\n\nif (isNil \"rv_init\") then {\nrv_vehicleInfo = compile preprocessFileLineNumbers \"scripts\\remoteVehicle\\vehicleInfo"
+	```
+
+	So it will then look like this for example:
+
+	```sqf
+	1 compile !="ay\",\"_exit\"];\n\nif (isNil \"rv_init\") then {\nrv_vehicleInfo = compile preprocessFileLineNumbers \"scripts\\remoteVehicle\\vehicleInfo"
+	```
+
+2. In your config\<yourServerName>\Battleye\scripts.txt around line 24: <code>5 createDialog</code> add this to the end of it:
+
+	```sqf
+	!=";\n\nif (count rv_vehicleList > 1) then {\nrv_isOk = false;\n\ncreateDialog \"remoteVehicle\";\n\n_display = uiNamespace getVariable[\"rv_"
+	```
+
+	So it will then look like this for example:
+
+	```sqf
+	5 createDialog <CUT> !=";\n\nif (count rv_vehicleList > 1) then {\nrv_isOk = false;\n\ncreateDialog \"remoteVehicle\";\n\n_display = uiNamespace getVariable[\"rv_"
 	```
 	
-	So it will then look like this for example:
+3. In your config\<yourServerName>\Battleye\scripts.txt around line 50: <code>5 lbSet</code> add this to the end of it:
+
 	```sqf
-	5 createDialog <CUT> !"createDialog \"remoteVehicle\";"
+	!="ive DZE_myVehicle} && {DZE_myVehicle == _x}) then {\n_control lbSetColor [(lbSize _control)-1,[0, 1, 0, 1]];\n};\n} count rv_vehicl"
 	```
+
+	So it will then look like this for example:
+
+	```sqf
+	5 lbSet <CUT> !="ive DZE_myVehicle} && {DZE_myVehicle == _x}) then {\n_control lbSetColor [(lbSize _control)-1,[0, 1, 0, 1]];\n};\n} count rv_vehicl"
+	```	
+	
+4. In your config\<yourServerName>\Battleye\scripts.txt around line 85: <code>5 title</code> add this to the end of it:
+
+	```sqf
+	!="play displayCtrl 8801 ctrlSetText(format[localize \"STR_CL_RV_TITLE\",_keyDisplay]);\n\n_control = ((findDisplay 8800) displayCtrl 8"
+	```
+
+	So it will then look like this for example:
+
+	```sqf
+	5 title <CUT> !="play displayCtrl 8801 ctrlSetText(format[localize \"STR_CL_RV_TITLE\",_keyDisplay]);\n\n_control = ((findDisplay 8800) displayCtrl 8"
+	```	
+
+**** *For Epoch 1.0.6.2 only* ****
+**[>> Download <<](https://github.com/oiad/remoteVehicle/archive/refs/tags/Epoch_1.0.6.2.zip)**
+
+Visit this link: https://github.com/oiad/remoteVehicle/tree/Epoch_1.0.6.2
