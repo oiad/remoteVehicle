@@ -13,12 +13,24 @@
 	C:\users\<YOUR WINDOWS USERNAME>\AppData\Local\Arma 2 OA\ArmA2OA.RPT
 	```
 
-# Install:
+# Index:
 
-* This uses Click Actions by Mudzereli as a dependancy: https://github.com/mudzereli/DayZEpochDeployableBike/tree/master/overwrites/click_actions
-* This install basically assumes you have a custom compiles.sqf.
+* [Mission folder install](https://github.com/oiad/remoteVehicle#mission-folder-install)
+* [BattlEye filter install](https://github.com/oiad/remoteVehicle#battleye-filter-install)
+* [Old Releases](https://github.com/oiad/remoteVehicle#old-releases)
 
 **[>> Download <<](https://github.com/oiad/remoteVehicle/archive/master.zip)**
+
+# Install:
+
+* This install basically assumes you have a custom compiles.sqf.
+
+** If not, visit this repo and follow the steps there **
+https://github.com/AirwavesMan/custom-epoch-functions
+
+* If you have not installed the Click Actions visit this  
+https://github.com/AirwavesMan/epoch-right-click-actions
+
 
 # Mission folder install:
 
@@ -42,7 +54,7 @@
 	};	
 	```
 
-3. Edit your clickActions\config.sqf and add this line to your DZE_CLICK_ACTIONS array:
+3. Edit your scripts\clickActions\config.sqf and add this line to your DZE_CLICK_ACTIONS array:
 
 	```sqf
 	["ItemKey",localize "STR_CL_RV_CA_EJECT","spawn remoteVehicle;","true",1],
@@ -75,7 +87,7 @@
 	#include "scripts\remoteVehicle\remoteVehicle.hpp"
 	```
 
-# BattlEye filters:
+# BattlEye filter install:
 
 1. In your config\<yourServerName>\Battleye\scripts.txt around line 22: <code>1 compile</code> add this to the end of it:
 
@@ -125,7 +137,10 @@
 	5 title <CUT> !="play displayCtrl 8801 ctrlSetText(format[localize \"STR_CL_RV_TITLE\",_keyDisplay]);\n\n_control = ((findDisplay 8800) displayCtrl 8"
 	```	
 
-**** *For Epoch 1.0.6.2 only* ****
+# Old Releases:	
+
+**** *Epoch 1.0.6.2* ****
 **[>> Download <<](https://github.com/oiad/remoteVehicle/archive/refs/tags/Epoch_1.0.6.2.zip)**
 
-Visit this link: https://github.com/oiad/remoteVehicle/tree/Epoch_1.0.6.2
+
+
